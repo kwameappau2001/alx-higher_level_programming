@@ -10,7 +10,7 @@ prints the following statistics:
 """
 
 
-def print_stats(size, status_codes):
+def print_stats(status_codes, size):
     """Print accumulated metrics.
 
     Args:
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             if count == 10:
-                print_stats(size, status_codes)
+                print_stats(status_codes, size)
                 count = 1
             else:
                 count += 1
@@ -53,8 +53,8 @@ if __name__ == "__main__":
             except IndexError:
                 pass
 
-        print_stats(size, status_codes)
+        print_stats(status_codes, size)
 
     except KeyboardInterrupt:
-        print_stats(size, status_codes)
+        print_stats(status_codes, size)
         raise
